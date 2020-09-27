@@ -3,7 +3,9 @@ package br.com.miguelwolf.gastodeviagem
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.NumberFormatException
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,13 +31,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun calculate() {
 
         if (validationOk()) {
-            val distance = mainEtDistancia.text.toString().toFloat();
-            val price = mainEtPreco.text.toString().toFloat();
-            val autonomy = mainEtAutonomia.text.toString().toFloat();
 
-            val totalValue = (distance * price) / autonomy
+            try {
+                val distance = mainEtDistancia.text.toString().toFloat()
+                val price = mainEtPreco.text.toString().toFloat()
+                val autonomy = mainEtAutonomia.text.toString().toFloat()
 
-            mainTvGastoTotalValor.text = "R$ ${"%.2f".format(totalValue)}"
+                val totalValue = (distance * price) / autonomy
+
+                mainTvGastoTotalValor.text = "R$ ${"%.2f".format(totalValue)}"
+
+            } catch (nfe: NumberFormatException) {
+                Toast.makeText(this, getString(R.string.informe_valores_validos), Toast.LENGTH_LONG).show()
+            }
+
+        } else {
+            Toast.makeText(this, getString(R.string.preencha_campos), Toast.LENGTH_LONG).show()
         }
 
     }
@@ -44,7 +55,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         return (mainEtDistancia.text.toString().trim().isNotEmpty() &&
                 mainEtPreco.text.toString().trim().isNotEmpty() &&
-                mainEtAutonomia.text.toString().trim().isNotEmpty())
+                mainEtAutonomia.text.toString().trim().isNotEmpty() &&
+                !mainEtAutonomia.text.toString().equals("0"))
 
     }
 
