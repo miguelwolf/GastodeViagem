@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- DISTÂNCIA ================================================================================= -->
+        <EditText
+            android:id="@+id/mainEtDistancia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/distancia"
+            android:inputType="number"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mainTvDistancia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/total_quilometros"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainEtDistancia" />
+
+        <!-- PREÇO ===================================================================================== -->
+        <EditText
+            android:id="@+id/mainEtPreco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/preco"
+            android:inputType="numberDecimal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainTvDistancia" />
+
+        <TextView
+            android:id="@+id/mainTvPreco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/preco_litro"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainEtPreco" />
+
+        <!-- AUTONOMIA ===================================================================================== -->
+        <EditText
+            android:id="@+id/mainEtAutonomia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/autonomia"
+            android:inputType="numberDecimal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainTvPreco" />
+
+        <TextView
+            android:id="@+id/mainTvAutonomia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/km_litro"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainEtAutonomia" />
+
+        <TextView
+            android:id="@+id/mainTvGastoTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/gasto_sera"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainTvAutonomia" />
+
+        <TextView
+            android:id="@+id/mainTvGastoTotalValor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="R$ 0"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="32sp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainTvGastoTotal" />
+
+        <Button
+            android:id="@+id/mainBtnCalcular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/calcular"
+            android:padding="20dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainTvGastoTotalValor" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
